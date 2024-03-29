@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grociery Item</title>
-    <script src="test.js"></script>
+    <script src="script.js"></script>
 </head>
 <body>
     <header>
@@ -14,16 +14,15 @@
     </header>
 
     <main>
-        <form id = "form" onsubmit="addItem()">
-            <input type="text" id = "newItem" name="newItem" id="newItem" placeholder="Name..." >
-            <input type="button" value="Add Item" onclick="addItem()">
-        </form>
+        <!-- <form id = "form" onsubmit="addItem()"> -->
+        <input type="text" id = "newItem" name="newItem" id="newItem" placeholder="Name..." >
+        <input type="button" value="Add Item" onclick="addItem()">
+        <!-- </form> -->
 
         <div id = "items">
         </div>
 
     </main>
-
     <footer>
         <button>
             Clear items
