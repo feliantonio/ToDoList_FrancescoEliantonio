@@ -1,0 +1,100 @@
+*
+{
+    font-family: 'Montserrat',sans-serif;
+    background-color: #f5f5f5;
+}
+
+body
+{
+    max-width: 60%;
+    margin: auto;
+}
+
+h1
+{
+    text-align: center;
+}
+
+.flex-container
+{
+    display: flex;
+}
+
+.left
+{
+    min-width: 300px;
+    flex-grow: 9;
+}
+
+.buttons
+{
+    max-width: 100px;
+    flex-grow: 3;
+}
+
+.b-add-del
+{
+    flex-grow: 1;
+    border: 1px solid #80cfa9 ;
+    min-width: 100px;
+    background-color: transparent;
+    font-size: 1rem;
+    color: #80cfa9;
+}
+
+.btn
+{
+    flex-grow: 1;
+    margin-left: 5px;
+    margin-right: 5px;
+    border: none;
+    background-color: transparent;
+    padding: 0px;
+}
+
+.item
+{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#done{
+    color:green;
+}
+
+#change
+{
+    color: blue;
+}
+
+#del
+{
+    color: red;
+}
+
+form
+{
+    min-height: 40px;
+}
+
+#newItem
+{
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    border: 1px #80cfa9 solid;
+    border-right:none ;
+}
+
+#btnAdd
+{
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+footer > button
+{
+    max-width: 120px;
+    min-height: 40px;
+    border-radius: 5px;
+    margin: auto;
+}
