@@ -6,16 +6,17 @@
 function addItem()
 {
     let taskContain = document.getElementById("tasks");
-
+    let l = taskContain.children.length;
     const input = document.getElementById("newItem");
+
 
     if (input.value != "")
     {
-        const currInd = (localStorage.length + 1).toString();
+        let index = (l+1).toString();
 
-        localStorage.setItem(currInd,input.value);
+        localStorage.setItem(index,input.value);
 
-        taskContain.appendChild(createItem(input.value));
+        taskContain.appendChild(createItem(input.value,index));
         input.value = "";
         
     }
@@ -46,7 +47,7 @@ function createItem(taskName,index)
     //bottone done
     const done = document.createElement("button");
     done.setAttribute("class", "btn");
-    done.setAttribute("onclick" , "checkTask("+index+")");
+    done.setAttribute("onclick" , "checkTask(" + index + ")");
     let iconDn = document.createElement("span");
     iconDn.setAttribute("id" , "done");
     iconDn.setAttribute("class", "material-symbols-outlined");
@@ -56,7 +57,7 @@ function createItem(taskName,index)
     //bottone change
     const change = document.createElement("button");
     change.setAttribute("class", "btn");
-    // change.setAttribute("onclick", "change()");
+    change.setAttribute("onclick", "changeTask(" + index +")");
     let iconC = document.createElement("span");
     iconC.setAttribute("id", "change");
     iconC.setAttribute("class", "material-symbols-outlined");
@@ -121,4 +122,14 @@ function checkTask(index)
     {
         elName.setAttribute("class", "left");
     }
+}
+
+function changeTask(index)
+{
+    let taskContain = document.getElementById("tasks");
+    let el = taskContain.children[index - 1];
+    let input = document.getElementById("newItem");
+    input.value = el.children[0].innerText;
+    taskContain.removeChild(el);
+    localStorage.removeItem(index.toString());
 }
