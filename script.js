@@ -1,6 +1,8 @@
 
 // taskStore = [];
 
+//aggiungo ogni elemento al div e al local storage
+
 function addItem()
 {
     let taskContain = document.getElementById("tasks");
@@ -24,30 +26,35 @@ function addItem()
 
 }
 
+//creo ogni singolo elemento
 function createItem(taskName)
 {
     const newElement = document.createElement("div");
     newElement.setAttribute("class", "item flex-container");
 
+    //testo
     const name = document.createElement("div");
     name.setAttribute("class", "left");
     name.setAttribute("id", "name");
     name.innerHTML = taskName;
 
+    //div bottoni
     const buttons = document.createElement("div");
     buttons.setAttribute("class", "buttons flex-container");
 
+    //bottone done
     const done = document.createElement("button");
-    done.setAttribute("class", "btn");
+    done.setAttribute("class", "btn d");
+    done.setAttribute("onclick" , "test()");
     let iconDn = document.createElement("span");
     iconDn.setAttribute("id" , "done");
     iconDn.setAttribute("class", "material-symbols-outlined");
     iconDn.innerText = "check_circle";
     done.appendChild(iconDn);
 
-
+    //bottone change
     const change = document.createElement("button");
-    change.setAttribute("class", "btn");
+    change.setAttribute("class", "btn c");
     let iconC = document.createElement("span");
     iconC.setAttribute("id", "change");
     iconC.setAttribute("class", "material-symbols-outlined");
@@ -56,8 +63,7 @@ function createItem(taskName)
 
     //bottone cancella
     const del = document.createElement("button");
-    del.setAttribute("class", "btn");
-    //icona x
+    del.setAttribute("class", "btn del");
     let iconD = document.createElement("span");
     iconD.setAttribute("id", "del");
     iconD.setAttribute("class","material-symbols-outlined");
@@ -74,13 +80,12 @@ function createItem(taskName)
     return newElement;
 }
 
+//onload display from storage
 function displayTasks()
 {
-    let taskContain = document.getElementById("tasks");
+    let taskContain = document.getElementById("tasks");  
     let taskName = "";
-    // localStorage.forEach(taskName => {
-    //     taskContain.appendChild(createItem(taskName));
-    // });
+
     for (let i = 1; i <= localStorage.length; i++) {
         taskName = localStorage.getItem(i.toString());
         taskContain.appendChild(createItem(taskName));
@@ -90,9 +95,16 @@ function displayTasks()
 
 function clearAll()
 {
-    // let taskContain = document.getElementById("tasks");
-    // for (let i = 1; i <= localStorage.length; i++) {
-    //     taskContain.removeChild(createItem(localStorage.getItem(i.toString())));
-    // }
-    // localStorage.clear();
+    let main = document.getElementById("main");
+    let taskContain = document.getElementById("tasks");
+    let clearedTaskContain = document.createElement("section");
+    clearedTaskContain.setAttribute("id" , "tasks");
+
+    main.replaceChild(clearedTaskContain,taskContain);
+    localStorage.clear();
+}
+
+function test()
+{
+    alert("c");
 }
