@@ -67,7 +67,7 @@ function createItem(taskName,index)
     //bottone cancella
     const del = document.createElement("button");
     del.setAttribute("class", "btn");
-    // del.setAttribute("onclick", "del()");
+    del.setAttribute("onclick", "deleleTask(" + index +")");
     let iconD = document.createElement("span");
     iconD.setAttribute("id", "del");
     iconD.setAttribute("class","material-symbols-outlined");
@@ -87,15 +87,22 @@ function createItem(taskName,index)
 //onload display from storage
 function displayTasks()
 {
-    let taskContain = document.getElementById("tasks");  
+    let taskContain = document.getElementById("tasks");
     let taskName = "";
+    let sorted = Object.keys(localStorage).sort();
 
-    for (let i = 1; i <= localStorage.length; i++) {
-        taskName = localStorage.getItem(i.toString());
-        taskContain.appendChild(createItem(taskName,i.toString()));
-    }
+    // for (let i = 1; i <= localStorage.length; i++) {
+    //     taskName = localStorage.getItem(i.toString());
+    //     taskContain.appendChild(createItem(taskName,i.toString()));
+    // }
+
+    sorted.forEach(key => {
+        taskName = localStorage.getItem(key);
+        taskContain.appendChild(createItem(taskName,key));
+    });
 
 }
+
 
 function clearAll()
 {
@@ -130,6 +137,14 @@ function changeTask(index)
     let el = taskContain.children[index - 1];
     let input = document.getElementById("newItem");
     input.value = el.children[0].innerText;
+    taskContain.removeChild(el);
+    localStorage.removeItem(index.toString());
+}
+
+function deleleTask(index)
+{
+    let taskContain = document.getElementById("tasks");
+    let el = taskContain.children[index-1];
     taskContain.removeChild(el);
     localStorage.removeItem(index.toString());
 }
