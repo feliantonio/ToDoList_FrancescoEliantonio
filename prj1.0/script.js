@@ -149,6 +149,7 @@ function changeTask(index)
 
 function deleleTask(index)
 {
+    alert(index);
     let taskContain = document.getElementById("tasks");
     let el = taskContain.children[index-1];
     taskContain.removeChild(el);
