@@ -6,19 +6,22 @@
 function addItem()
 {
     let taskContain = document.getElementById("tasks");
-    let l = taskContain.children.length;
+    let l = localStorage.length;
     const input = document.getElementById("newItem");
 
 
     if (input.value != "")
     {
-        let index = (l+1).toString();
+        let index = l+1;
 
-        localStorage.setItem(index,input.value);
+        while (localStorage.getItem(index.toString()) != null) 
+        {
+            index++;
+        }
+        localStorage.setItem(index.toString() , input.value);
 
         taskContain.appendChild(createItem(input.value,index));
         input.value = "";
-        
     }
     else
     {
@@ -32,7 +35,6 @@ function createItem(taskName,index)
 {
     const newElement = document.createElement("div");
     newElement.setAttribute("class", "item flex-container");
-    // newElement.setAttribute("id",index);
 
     //testo
     const name = document.createElement("div");
@@ -91,15 +93,11 @@ function displayTasks()
     let taskName = "";
     let sorted = Object.keys(localStorage).sort();
 
-    // for (let i = 1; i <= localStorage.length; i++) {
-    //     taskName = localStorage.getItem(i.toString());
-    //     taskContain.appendChild(createItem(taskName,i.toString()));
-    // }
-
     sorted.forEach(key => {
         taskName = localStorage.getItem(key);
         taskContain.appendChild(createItem(taskName,key));
     });
+    document.getElementById("newItem").focus();
 
 }
 
@@ -134,7 +132,15 @@ function checkTask(index)
 function changeTask(index)
 {
     let taskContain = document.getElementById("tasks");
-    let el = taskContain.children[index - 1];
+
+    let name = localStorage.getItem(index.toString());
+    let i = 0;
+    while (taskContain.children[i].children[0].innerText != name)
+    {
+        i++;
+    }
+
+    let el = taskContain.children[i];
     let input = document.getElementById("newItem");
     input.value = el.children[0].innerText;
     taskContain.removeChild(el);
