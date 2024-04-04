@@ -31,7 +31,13 @@ function addTask(ev)
     }
     else
     {
-        alert("inserire input valido");
+        let popup = document.querySelector(".popup");
+        popup.classList.remove("invisible");
+        input.style.outlineColor = "#f8d7da";
+        setTimeout(function(){
+            popup.classList.add("invisible");
+            input.style.outlineColor = "lightblue";
+        },5000);
     }
 }
 
