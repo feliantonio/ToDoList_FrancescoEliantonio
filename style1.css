@@ -22,14 +22,14 @@ h1
 
 .left
 {
-    min-width: 300px;
-    flex-grow: 9;
+    min-width: 100px;
+    flex-grow: 8;
 }
 
 .buttons
 {
-    max-width: 100px;
-    flex-grow: 3;
+    max-width: 25px;
+    flex-grow: 2;
 }
 
 .b-add-del
@@ -93,9 +93,10 @@ form
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
     border: 1px #80cfa9 solid;
-    border-right:none ;
+    border-right: none;
     padding: 8px;
     font-size: medium;
+    background-color: white;
 }
 
 #btnAdd
