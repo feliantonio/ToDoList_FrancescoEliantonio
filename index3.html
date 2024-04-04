@@ -3,12 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To do List</title>
+    <title>To do List3</title>
     <link rel="stylesheet" href="style2.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Public+Sans&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Public+Sans&family=Roboto:wght@300&display=swap"
+        rel="stylesheet">
 </head>
 <body>
+    <div class="container">
+
+        <header>
+            <h1>To do List</h1>
+        </header>
     
+        <main>
+            <section id = "formSection">
+                <form id="formInp" class="flex-container">
+    
+                    <input type="text" id="newItem" class="col-sx" placeholder="Name...">
+    
+                    <button id="btnAdd" class="col-dx btn-add-del">Add Item</button>
+                    
+                </form>
+            </section>
+    
+            <section id="boxTasks">
+                <!-- <div class = "item flex-container"> id con index elemento da ricordare
+                    <div id ="name" class = "col-sx">ciao</div>  
+                    
+                    <div class="flex-container col-dx">
+                        <button class="btn"> <span id = "done" class = "material-symbols-outlined">check_circle</span> </button>
+                        <button class="btn"> <span id = "change" class = "material-symbols-outlined">edit_square</span> </button>                    
+                        <button class="btn"> <span id = "del" class = "material-symbols-outlined">delete</span> </button>
+                    </div>
+                </div> -->
+            </section>
+        </main>
+    
+        <footer class="flex-container">
+            <button class="btn-add-del">Clear All</button>
+        </footer>
+
+    </div>
+    <script src="script2.js"></script>
 </body>
 </html>

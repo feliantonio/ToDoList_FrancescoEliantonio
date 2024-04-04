@@ -1,0 +1,162 @@
+/* layout */
+
+*{
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body
+{
+    background-color: #f5f5f5;
+}
+
+.container
+{
+    max-width: 800px;
+    width: 90%;
+    margin: auto;
+}
+
+.flex-container
+{
+    display: flex;
+}
+
+.col-dx {
+    min-width: 15%;
+}
+.col-sx
+{
+    width: 85%;
+}
+
+button span {
+    /* color: yellow; */
+    width: 100%;
+}
+
+h1
+{
+    text-align: center;
+}
+
+header
+{
+    margin: 2em 0;
+}
+
+section {
+    margin: 2rem 0;
+}
+
+#formInp
+{
+    height: 2.5rem;
+}
+
+/* decoration */
+
+.item
+{
+    margin: 1em 0;
+}
+
+.btn
+{
+    width: 33%;
+    padding: 0;
+    margin: 5px 0;
+    border: 0;
+    background-color: transparent;
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 20
+}
+
+.btn-add-del
+{
+    background-color: transparent;
+    border-radius: 5px;
+    border: 1px solid #80cfa9;
+    font-size: 1rem;
+    color: #80cfa9;
+}
+
+#btnAdd {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    border-left: none;
+}
+
+#newItem {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    border: 1px solid #80cfa9;
+    padding-left: 10px;
+    font-size: 1rem;
+}
+
+#name
+{
+    font-size: 1.25rem;
+}
+
+footer > button
+{
+    min-width: 15%;
+    min-height: 40px;
+    border-radius: 5px;
+    margin: auto;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+.underlined {
+    text-decoration: line-through;
+    color: grey;
+}
+
+.btn-add-del:hover {
+    background-color: #80cfa9;
+    color: black;
+    cursor: pointer;
+}
+
+#done {
+    color: green;
+}
+
+#done:hover {
+    color: #80cfa9;
+}
+
+#change {
+    color: blue;
+}
+
+#change:hover {
+    color: rgb(65, 124, 226);
+}
+
+#del {
+    color: red;
+}
+
+#del:hover {
+    color: #f3955e;
+}
+
+input:focus,.btn-add-del:focus
+{
+    outline: 3px  solid lightblue;
+}

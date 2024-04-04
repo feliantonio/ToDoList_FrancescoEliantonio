@@ -3,7 +3,7 @@
 let form = document.querySelector("#formInp");
 let btnClearAll = document.querySelector("footer>button");
 let input = document.getElementById("newItem");
-let taskContain = document.getElementById("tasks");
+let taskContain = document.getElementById("boxTasks");
 
 let tasks = [];
 
@@ -20,11 +20,12 @@ function addTask(ev)
 
     if (input.value != "")
     {
-        tasks.push(input.value);
+        let name = input.value[0].toUpperCase() + input.value.slice(1, input.value.lenght)
+        tasks.push(name);
         resetLocalStorage();
 
-        let index = tasks.indexOf(input.value);
-        let newEl = createItem(input.value,index);
+        let index = tasks.indexOf(name);
+        let newEl = createItem(name,index);
         taskContain.appendChild(newEl);
         input.value = "";
     }
@@ -81,11 +82,11 @@ function checkTask(storageIndex) {
     // get item from localStorage index
     let elName = getItem(storageIndex).children[0];
     
-    if (elName.getAttribute("class") == "left") {
-        elName.setAttribute("class", "left underlined");
+    if (elName.getAttribute("class") == "col-sx") {
+        elName.setAttribute("class", "col-sx underlined");
     }
     else {
-        elName.setAttribute("class", "left");
+        elName.setAttribute("class", "col-sx");
     }
 }
 
@@ -150,18 +151,17 @@ function createItem(taskName,index) {
 
     //testo
     const name = document.createElement("div");
-    name.setAttribute("class", "left");
+    name.setAttribute("class", "col-sx");
     name.setAttribute("id", "name");
-    name.innerHTML = taskName;
+    name.innerHTML = taskName[0].toUpperCase() + taskName.slice(1, taskName.lenght);
 
     //div bottoni
     const buttons = document.createElement("div");
-    buttons.setAttribute("class", "buttons flex-container");
+    buttons.setAttribute("class", "flex-container col-dx");
 
     //bottone done
     const done = document.createElement("button");
     done.setAttribute("class", "btn");
-    // done.setAttribute("onclick", "checkTask(" + index + ")");
     let iconDn = document.createElement("span");
     iconDn.setAttribute("id", "done");
     iconDn.setAttribute("class", "material-symbols-outlined");
@@ -171,7 +171,6 @@ function createItem(taskName,index) {
     //bottone change
     const change = document.createElement("button");
     change.setAttribute("class", "btn");
-    // change.setAttribute("onclick", "changeTask(" + index + ")");
     let iconC = document.createElement("span");
     iconC.setAttribute("id", "change");
     iconC.setAttribute("class", "material-symbols-outlined");
@@ -181,11 +180,10 @@ function createItem(taskName,index) {
     //bottone cancella
     const del = document.createElement("button");
     del.setAttribute("class", "btn");
-    // del.setAttribute("onclick", "deleleTask(" + index + ")");
     let iconD = document.createElement("span");
     iconD.setAttribute("id", "del");
     iconD.setAttribute("class", "material-symbols-outlined");
-    iconD.innerText = "cancel";
+    iconD.innerText = "delete";
     del.appendChild(iconD);
 
     buttons.appendChild(done);
