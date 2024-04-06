@@ -1,4 +1,3 @@
-
 //inizializzazioni globali
 let form = document.querySelector("#formInp");
 let btnClearAll = document.querySelector("footer>button");
@@ -37,7 +36,7 @@ function addTask(ev)
         setTimeout(function(){
             popup.classList.add("invisible");
             input.style.outlineColor = "lightblue";
-        },5000);
+        },4000);
     }
 }
 
@@ -67,7 +66,6 @@ function handleAction(ev)
 {
     let elementIndex = ev.target.parentElement.parentElement.parentElement.getAttribute("id");
     let action = ev.target.getAttribute("id");
-    // alert("target = " + ev.target.getAttribute("id") + ", this=" + ev.currentTarget.tagName);
     
     switch (action) {
         case "done":
